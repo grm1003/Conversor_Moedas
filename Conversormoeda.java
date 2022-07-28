@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import javax.swing.*;
 
 import javax.swing.JOptionPane;
 
@@ -86,5 +87,19 @@ public class Conversormoeda {
         String a = valor.substring(1, valor.length() - 1);
         double n = Double.parseDouble(a);
         return n;
+    }
+    public void tela() throws IOException {
+        JFrame frame = new JFrame("JOptionPane teste");
+
+        Object[] moedas = {"Dolar","Euro","Peso Argentino","Peso Chileno","Real","Libra Esterlina"};
+        String in = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que voce vai inserir",
+                "Opcao", JOptionPane.INFORMATION_MESSAGE, null, moedas, null);
+        String n_string = JOptionPane.showInputDialog("Digite o valor para ser convertido:");
+        double n = Double.parseDouble(n_string);
+        String out = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que o valor vai se coverter",
+                "Opcao", JOptionPane.INFORMATION_MESSAGE, null, moedas, null);
+        float n_out =  (float) converte(n, in, out);
+        JOptionPane.showMessageDialog(frame, "O valor convertido para "+ out + " eh " + n_out);
+
     }
 }

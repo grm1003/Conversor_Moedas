@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public class Conversortemperatura {
     public static double convertetemp(double a, String tempin, String tempout) {
@@ -44,6 +44,18 @@ public class Conversortemperatura {
         }
 
         return c;
+    }
+    public static void tela() {
+        JFrame frame = new JFrame("JOptionPane teste");
+        Object[] temps = {"Celsius","Kelvin","Fahrenheit"};
+        String in = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que voce vai inserir",
+                "Opcao", JOptionPane.INFORMATION_MESSAGE, null, temps, null);
+        String n_string = JOptionPane.showInputDialog("Digite o valor para ser convertido:");
+        double n = Double.parseDouble(n_string);
+        String out = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que o valor vai se coverter",
+                "Opcao", JOptionPane.INFORMATION_MESSAGE, null, temps, null);
+        float n_out =  (float) convertetemp(n, in, out);
+        JOptionPane.showMessageDialog(frame, "O valor convertido para "+ out + " eh " + n_out);
     }
 
 
