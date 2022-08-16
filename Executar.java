@@ -14,16 +14,33 @@ public class Executar  {
         JFrame frame = new JFrame("JOptionPane teste");
         JOptionPane.showMessageDialog(frame, "Seja bem vindo, ao conversor");
         Object[] conversor = {"Moedas","Temperatura"};
+        Object[] continuar = {"Sim","Não"};
         String cv = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que voce vai inserir",
                 "Opcao", JOptionPane.INFORMATION_MESSAGE, null, conversor, null);
         if(cv == "Moedas") {
-            Conversormoeda dinheiro = new Conversormoeda();
-            dinheiro.tela();
+            while(1>0) {
+                Conversormoeda dinheiro = new Conversormoeda();
+                dinheiro.tela();
+                String in = (String) JOptionPane.showInputDialog(frame, "Deseja continuar?",
+                        "Opcao", JOptionPane.INFORMATION_MESSAGE, null, continuar, null);
+                if (in == "Não"){
+                    break;
+                }
+
+            }
         }else {
-           Conversortemperatura temperatura = new Conversortemperatura();
-           Conversortemperatura.tela();
+            while(1>0) {
+                Conversortemperatura temperatura = new Conversortemperatura();
+                Conversortemperatura.tela();
+                String in = (String) JOptionPane.showInputDialog(frame, "Deseja continuar?",
+                        "Opcao", JOptionPane.INFORMATION_MESSAGE, null, continuar, null);
+                if (in == "Não") {
+                    break;
+                }
+            }
 
         }
+
 
     }
 

@@ -9,9 +9,13 @@ import javax.swing.JOptionPane;
 
 
 public class Conversormoeda {
+
     public static double converte(double a, String moedain, String moedaout) throws IOException {
         double valor = 0;
-        if (a < 0) throw new IllegalArgumentException(JOptionPane.showInputDialog(null, "Valor inválido"));
+        if (a < 0) {
+            throw new IllegalArgumentException(JOptionPane.showInputDialog(null, "Valor inválido"));
+
+        }
         if (moedain == "Dolar") {
             valor = a;
         }
@@ -61,8 +65,8 @@ public class Conversormoeda {
         return valorconvertido;
     }
 
-    public static double realtime(String in, String out) throws IOException {
-        String GET_URL = "https://economia.awesomeapi.com.br/" + in + "-" + out + "/1?format=moeda";
+    public static double realtime(String entrada , String saida) throws IOException {
+        String GET_URL = "https://economia.awesomeapi.com.br/" + entrada + "-" + saida + "/1?format=moeda";
         URL url = new URL(GET_URL);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
@@ -99,7 +103,7 @@ public class Conversormoeda {
         String out = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que o valor vai se coverter",
                 "Opcao", JOptionPane.INFORMATION_MESSAGE, null, moedas, null);
         float n_out =  (float) converte(n, in, out);
-        JOptionPane.showMessageDialog(frame, "O valor convertido para "+ out + " eh " + n_out);
+        JOptionPane.showMessageDialog(frame, "O valor convertido para "+ out + " eh " + String.format("%.2f", n_out));
 
     }
 }

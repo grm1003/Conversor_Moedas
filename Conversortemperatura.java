@@ -55,7 +55,7 @@ public class Conversortemperatura {
         String out = (String) JOptionPane.showInputDialog(frame, "Escolha o tipo de moeda que o valor vai se coverter",
                 "Opcao", JOptionPane.INFORMATION_MESSAGE, null, temps, null);
         float n_out =  (float) convertetemp(n, in, out);
-        JOptionPane.showMessageDialog(frame, "O valor convertido para "+ out + " eh " + n_out);
+        JOptionPane.showMessageDialog(frame, "O valor convertido de "+ in + " para " + out + " eh " + n_out);
     }
 
 
